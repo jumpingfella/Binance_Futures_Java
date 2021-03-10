@@ -93,7 +93,16 @@ public class SyncRequestImpl implements SyncRequestClient {
                 timeInForce, quantity, price, reduceOnly, 
                 newClientOrderId, stopPrice, workingType,newOrderRespType));
     }
-    
+
+    @Override
+    public Order postMarketOrder(String symbol, OrderSide side, PositionSide positionSide, OrderType orderType,
+                           String quantity, String reduceOnly,
+                           String newClientOrderId, String stopPrice, WorkingType workingType, NewOrderRespType newOrderRespType) {
+        return RestApiInvoker.callSync(requestImpl.postMarketOrder(symbol, side, positionSide, orderType,
+                quantity, reduceOnly,
+                newClientOrderId, stopPrice, workingType,newOrderRespType));
+    }
+
     @Override
     public Order cancelOrder(String symbol, Long orderId, String origClientOrderId) {
         return RestApiInvoker.callSync(requestImpl.cancelOrder(symbol, orderId, origClientOrderId));
