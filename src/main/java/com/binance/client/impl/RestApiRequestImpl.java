@@ -607,7 +607,7 @@ class RestApiRequestImpl {
 
     RestApiRequest<Order> postMarketOrder(String symbol, OrderSide side, PositionSide positionSide, OrderType orderType,
                                     String quantity, String reduceOnly,
-                                    String newClientOrderId, String stopPrice, WorkingType workingType, NewOrderRespType newOrderRespType) {
+                                    String newClientOrderId, String stopPrice, boolean closePosition, WorkingType workingType, NewOrderRespType newOrderRespType) {
         RestApiRequest<Order> request = new RestApiRequest<>();
         UrlParamsBuilder builder = UrlParamsBuilder.build()
                 .putToUrl("symbol", symbol)
@@ -618,6 +618,7 @@ class RestApiRequestImpl {
                 .putToUrl("reduceOnly", reduceOnly)
                 .putToUrl("newClientOrderId", newClientOrderId)
                 .putToUrl("stopPrice", stopPrice)
+                .putToUrl("closePosition", "" + closePosition)
                 .putToUrl("workingType", workingType)
                 .putToUrl("newOrderRespType", newOrderRespType);
 

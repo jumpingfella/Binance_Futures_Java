@@ -157,7 +157,7 @@ public interface SyncRequestClient {
 
     Order postMarketOrder(String symbol, OrderSide side, PositionSide positionSide, OrderType orderType,
                     String quantity, String reduceOnly,
-                    String newClientOrderId, String stopPrice, WorkingType workingType, NewOrderRespType newOrderRespType);
+                    String newClientOrderId, String stopPrice, boolean closePosition, WorkingType workingType, NewOrderRespType newOrderRespType);
 
     /**
      * Cancel an active order.
